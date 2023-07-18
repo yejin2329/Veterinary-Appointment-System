@@ -1,0 +1,37 @@
+/*
+*****************************************************************************
+                        Assignment 1 - Milestone 3
+Full Name  : Jenny Kim
+Student ID#: 139787220
+Email      : ykim314@myseneca.ca
+Section    : NMM
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+*****************************************************************************
+*/
+
+1. Three functions that I created are void classify(struct Appointment appointment[ ], int max), int appointmentValidation(int patientNumber, struct Date date, struct Appointment * appointment, int max) and int nextSlotAvailable(struct Appointment *appointment, int max).
+1)void classify(struct Appointment appointment[ ], int max): The purpose of this function is to classify the data values, which from struct Appointment type appointment array, in ascending order. change values of year, month, day, hour, minutes into value as minute. 
+Function sort out from smallest value to largest with same minute unit value. After done sorting/classifying those datas, function convert these datas back to original values. This function was used mainly in view function.
+2)int appointmentValidation(int patientNumber, struct Date date, struct Appointment * appointment, int max): The purpose of this function is to check whether the appointment is actually exist and not false appointment. It takes datas by arguments stated and check/validate those datas if it's equal 
+to the datas in the appointment array. And return the value to index value of appointment in the struct Appointment array. This function was used in the removeAppointment function so I can check appointment wants to remove is really exist in the system.
+3)int nextSlotAvailable(struct Appointment *appointment, int max): The purpose of this function is to check if record contain patient value which is less than 1, so that if there's available spot left, user can take more appointment in struct Appointment array. This function returns 0 if there's no more space or returns 1 
+if there's space to book more appointment. This function was used in addAppointment function to check the available slot.
+
+2. The addAppointment function was used approximately 60-70 lines of code. The most logic code written in this function is calling other functions from "clinic.c" or "core.c". Other functions were called to check certain situation instead of writing another logic for corresponding need function. For example, inputIntPositive( ) function or inputIntRange( ) function were used in this addAppointment function
+to check if input was validate input. If these function didn't use, I need to write logic to validate each input which will be more lines of code and makes complicate. Wheras, calling the function to validate user input is simple and less complicate. Also, other function were used such as availableTimeSlot and nextSlotAvailable. Function "availableTimeSlot" used to check the extra space for another appointment 
+and function "nextSlotAvailable" which is position for vacant. And most of pattern of function is just iteration under various conditions. By checking condition that is met, go through the correspond iteration loop. In addition, I also made 2 struct for temporary purpose. In these struct, I can store input datas and make code smaller. Usage of temporary structure is better way because creating many individual variables to store many input datas is more complex and complicate. With these approach
+in this addAppointment function, I was able to write the code more readability and maintainability.
+
+3. This week milestone was very long and hardest in this semester. Due to its complexity, I encountered many difficulties as writing the code. And these difficult problems make me complete this workshop slowly. Before I start this last milestone, I kind of know this will take little bit longer than other workshop I have done in this course. Meaning, ideally I should've start this milestone right after I finished milestone2. So, I can complete
+each small part each day, which gives me more time to think and write the logic. However, I started on Saturday and it was limited time to finish it before the deadline. (Which I actually submit 1 day late). The breakdown of how I spent working on this milestone is following:
+- I first start with reading given instruction so I know which new functions, struct, variables should be made. 
+-Then I start off creating the 3 struct part; Time, Date and Appointment with each members. This was easy part and I spent about 10-15 minutes.
+-After this, I create function and write definition for import 2 data Files which are 'importPatient' function and 'importAppointments' function. This part was difficult but essential part of this milestone because if we don't have this import function, provided 'appointmentData' and 'patientData' can't be used. Which means all other functions I created in the code is useless because it require datas from 2 provided files. If there's no datas of appointment 
+and patient, this whole code is not worth it. While creating this function definition, there were lot of errors occured and took me several hours to fixed.
+- Next step I did was to classify the datas in struct Appointment array so all datas are displayed in ascending format. Creating this function was difficult but I was able to write this function by converting all values into minutes and comparing each other for ascending way. 
+-Next step was writing 4 functions, 'viewAllAppointments', 'viewAppointmentSchedule', 'addAppointment', and 'removeAppointment'. I followed the instruction given to use while creating it.
+Among these functions, addAppointment function and removeAppointment function was hardest and took me several hours. This is because these functions need old utility function that I made before for specific task to be done inside the new function I made.    
+-After that, I write all other missing part as need for this milestone. 
